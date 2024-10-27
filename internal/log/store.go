@@ -105,3 +105,12 @@ func (s *store) ReadAt(p []byte, off int64) (int, error) {
 /*
 Closing the file
 */
+func (s *store) Close() error {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	// Flushing everything from buffer first
+	if err := s.buf.Flush(); err != nil {
+		return err
+	}
+	return s.File.Close()
+}
