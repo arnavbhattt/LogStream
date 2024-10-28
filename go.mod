@@ -1,4 +1,4 @@
-module github.com/arnavbhattt/logger
+module github.com/arnavbhattt/LogStream
 
 go 1.23.2
 
