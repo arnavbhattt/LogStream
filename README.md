@@ -1,13 +1,21 @@
-# Distributed Log Package Implementation
+# Distributed Log Package
 
-- Terms
+## Overview
 
-  - Record: data stored in log
-  - Store: file records entries are stored in
-  - Index: file index entries are stored in
-  - Segment: ties store and index together
-  - Log: ties all segments together
+This package provides an implementation of a distributed log system that stores data in a series of organized records, files, and segments.
 
-- Reading a record given offset
-  - Get entry from index file (memory-mapped) for record
-  - Read record at position in store file
+### Key Components
+
+- **Record**: A unit of data stored within the log.
+- **Store**: A file where record data is saved.
+- **Index**: A file that stores references to records for efficient lookup.
+- **Segment**: Combines a store and index, managing a collection of records.
+- **Log**: Aggregates all segments, serving as the complete storage unit for records.
+
+### Functionality
+
+- **Reading a Record by Offset**
+  - Retrieves the record’s position from the memory-mapped index file.
+  - Reads the record directly from the store file at the retrieved position.
+
+This structure enables efficient data storage and retrieval for distributed systems.
