@@ -97,7 +97,7 @@ func (s *segment) Read(off uint64) (*api.Record, error) {
 /*
 Check if segment has reached max size
 */
-func (s *segment) isMaxed() bool {
+func (s *segment) IsMaxed() bool {
 	return s.store.size >= s.config.Segment.MaxStoreBytes ||
 		s.index.size >= s.config.Segment.MaxIndexBytes
 }
